@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import './FireChat.css';
 import Channel from './Channel';
 import EnterMessage from './EnterMessage';
@@ -9,8 +9,8 @@ const logoAddr = "https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-f
 const googleLogo = "https://blog.hubspot.com/hubfs/image8-2.jpg"
 
 function FireChat() {
-  const [user, setUser] = useState(() => auth.currentUser)
-  const [initializing, setInitializing] = useState(true)
+  const [user, setUser] = useState(() => auth.currentUser);
+  const [initializing, setInitializing] = useState(true);
 
   useEffect(() => {
     const unsubscribe =auth.onAuthStateChanged(user => {

@@ -11,7 +11,7 @@ const Channel = ({firestore=null}) => {
             const unsubscribe = firestore
             .collection('/messages')
             .orderBy('createdAt')
-            .limit(20)
+            .limitToLast(20)
             .onSnapshot(querySnapshot => {
                 const data = querySnapshot.docs.map(doc => ({
                     ...doc.data(),
