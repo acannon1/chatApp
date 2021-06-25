@@ -1,0 +1,24 @@
+.message {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    margin: .5em;
+}
+
+.name {
+    color: #ff0000;
+    margin-right: 2em;
+}
+
+.text {
+    color: #ffff;
+}
+
+.time {
+    color: lightgrey;
+}
+
+
+.messageHeader {
+    display: inline-flex;
+
+}

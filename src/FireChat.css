@@ -1,0 +1,169 @@
+
+.App{
+    background-color: dimgrey;
+    text-align: center;
+}
+
+/* div {
+    border: 1px solid black;
+} */
+
+img {
+    height: 1em;
+    width: 1em;
+}
+
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+}
+
+.wrapper {
+    min-height: 100vh;
+    margin: 1em;
+}
+
+.box1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    height: 5em;
+}
+
+.box2 {
+    text-align: center;
+}
+
+.box3-signIn {
+    text-align: center;
+}
+
+.enter-msg {
+    /* align-items: center;
+    text-align: center;
+    max-width: 90vw; */
+}
+
+.chat {
+    grid-column: 2/6;
+}
+
+.chatting {
+    text-align: center;
+    height: 5em;
+}
+
+.title {
+    grid-column: 2/5;
+    font-size: 3.5em;
+    font-weight: 700;
+    text-shadow: 3px 8px rgba(50, 50, 70, 0.5);
+    color: red
+}
+
+.welcome {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.beginning {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 2em;
+}
+
+.messages {
+    text-align: left;
+    border: 1px solid white;
+    border-radius: 4px;
+    max-height: 60vh;
+    width: 80%;
+    margin: 2em 5em 2em 5em;
+    overflow: auto;
+    display:flex; flex-direction:column-reverse;
+    position: relative;
+}
+          
+/* Designing for scroll-bar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: gainsboro;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.newMsg {
+    height: 1.5em;
+    margin: 1em 1em 1em 1em;
+}
+
+.newMsg .inputMsg {
+    border-radius: 5px;
+    border: none;
+    font-size: 1.25em;
+    margin-right: .5em;
+    width: 70vw;
+}
+
+.circle {
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    background: #000
+  }
+
+  .signInBtn {
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 5px;
+  }
+  
+
+  .signout {
+    border-radius: 5px;
+}
+
+.pushable {
+    background: hsl(340deg 100% 32%);
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+}
+
+.front {
+    display: block;
+    /* padding: 12px 42px; */
+    padding: 6px 30px;
+    border-radius: 12px;
+    font-size: 1.25em;
+    background: hsl(345deg 100% 47%);
+    color: white;
+    transform: translateY(-6px);
+}
+
+.pushable:active .front {
+    transform: translateY(-2px);
+}
