@@ -1,0 +1,47 @@
+.message {
+    position: relative;
+    margin: 1em 40% 1em .5em;
+    background-color: azure;
+    border-radius: 20px;
+    display: inline-flex;
+    min-width: 50%;
+}
+
+.message-indent {
+    position: relative;
+    margin: 1em .5em 1em 40%;
+    background-color: lightblue;
+    border-radius: 20px;
+    min-width: 50%;
+}
+
+.text {
+    color: #2b2929;
+    padding-left: 1em;
+}
+
+.message-header {
+    display: inline-flex;
+    padding-left: 1em;
+
+}
+
+.message-header .name {
+    color: #ff0000;
+    margin-right: 2em;
+}
+
+.message .message-header .time {
+    color: lightgrey;
+}
+
+.circle {
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    background: #000
+  }

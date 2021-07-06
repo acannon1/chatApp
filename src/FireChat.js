@@ -1,16 +1,19 @@
 import React, {useState, useEffect, useRef} from 'react';
 import './FireChat.css';
-import Channel from './Channel';
-import EnterMessage from './EnterMessage';
-import {auth, firestore} from './Support.js';
+import Channel from './Components/Channel.js';
+import EnterMessage from './Components/EnterMessage.js';
+import Rooms from './Components/Rooms.js'
+import Users from './Components/Users.js'
+import {auth, firestore} from './Authorize/Support.js';
 import firebase from 'firebase/app';
 
-const logoAddr = "https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-fire-logo-icon-design-template-vector-png-image_705401.jpg"
 const googleLogo = "https://blog.hubspot.com/hubfs/image8-2.jpg"
 
 function FireChat() {
   const [user, setUser] = useState(() => auth.currentUser);
   const [initializing, setInitializing] = useState(true);
+  const [rooms, setRooms] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const unsubscribe =auth.onAuthStateChanged(user => {
@@ -46,12 +49,12 @@ function FireChat() {
   if (initializing) return "Loading ...";
 
   return (
-    <div className="App">
+    <div className="FireChat">
       {user ?
-        <div className="wrapper">
-          <div className="box1"> 
+        <div className="container">
+          <div className="header"> 
             <div className="title"> FireChat </div>
-            <div>   
+            <div className="signout-btn">   
               <button onClick={signOut} className="pushable"> 
                 <span className="front">
                     Sign Out
@@ -60,20 +63,33 @@ function FireChat() {
             </div>
           </div>
 
-          <div className="welcome"> Welcome to React FireChat </div>
+          <div className="main">
+            <div className="section-1">
+              <Rooms rooms={rooms}/>
+            </div>
 
-          <div className="messages">
-            <Channel firestore={firestore}/>
-          </div>
+            <div className="section-2">
+              <div className="chat-sect">
+                <div className="blank"></div>
+                <div className="channel">
+                  <Channel firestore={firestore} user={user.displayName}/>
+                </div>
 
-          <div className="enter-msg">
-            <EnterMessage displayName={user.displayName} db={firestore}/>
+                <div className="enter-msg">
+                  <EnterMessage displayName={user.displayName} db={firestore}/>
+                </div>
+              </div>
+            </div>
+
+            <div className="section-3">
+              <Users users={users}/>
+            </div>
           </div>
         </div>
 
         :
 
-        <div className="wrapper">
+        <div className="top-wrapper">
           <div className="box1"> 
             <h1 className="title"> FireChat </h1>
           </div>
@@ -83,9 +99,9 @@ function FireChat() {
 
           <div className="box3-signIn">
             
-            <h1> React <img src={logoAddr}/> FireChat </h1>
+            <h1> React FireChat </h1>
             <h3> The easiest way to chat with people all around the world. </h3>
-            <button className="signInBtn" onClick={signInWithGoogle}>
+            <button className="sign-in-btn" onClick={signInWithGoogle}>
               <img src={googleLogo}/>
               Sign in with Google
             </button>

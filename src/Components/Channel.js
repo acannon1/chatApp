@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import Messages from './Messages.js';
-import './Channel.css';
+import '../FireChat.css';
 
 
-const Channel = ({firestore=null}) => {
+const Channel = ({firestore=null, user=''}) => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
@@ -23,6 +23,8 @@ const Channel = ({firestore=null}) => {
         }
     }, [firestore]);
 
+    console.log(user)
+
     return (
         <ul>
             {messages.map (message => (
@@ -32,6 +34,7 @@ const Channel = ({firestore=null}) => {
                         displayName = {message.uid}
                         text = {message.text}
                         createdAt = {message.createdAt}
+                        self={message.uid === user}
                     />
                 </li>
             ))}
